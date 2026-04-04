@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --background: 217 32% 17%;
+        --foreground: 226 84% 95%;
+        --card: 219 39% 11%;
+        --card-foreground: 226 84% 95%;
+        --popover: 219 39% 11%;
+        --popover-foreground: 226 84% 95%;
+        --primary: 219 39% 11%;
+        --primary-foreground: 226 84% 95%;
+        --secondary: 217 32% 17%;
+        --secondary-foreground: 226 84% 95%;
+        --muted: 217 32% 25%;
+        --muted-foreground: 226 64% 75%;
+        --accent: 50 96% 56%;
+        /* Updated to #FBD924 yellow accent */
+        --accent-foreground: 219 39% 11%;
+        --destructive: 0 84% 60%;
+        --destructive-foreground: 226 84% 95%;
+        --border: 217 32% 25%;
+        --input: 217 32% 25%;
+        --ring: 50 96% 56%;
+        --radius: 0.5rem;
+
+        /* Typography tokens */
+        --font-heading: "DM Sans", sans-serif;
+        --font-body: "DM Sans", sans-serif;
+
+        /* Spacing tokens */
+        --section-padding: 6rem;
+        --container-max: 1280px;
+    }
+
+    * {
+        @apply border-border;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        @apply bg-background text-foreground;
+        font-family: var(--font-body);
+        overflow-x: clip;
+        font-feature-settings: "kern" 1, "liga" 1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: var(--font-heading);
+        text-wrap: balance;
+    }
+
+    /* Sidebar variables for compatibility */
+    :root {
+        --sidebar-background: 219 39% 11%;
+        --sidebar-foreground: 226 84% 95%;
+        --sidebar-primary: 219 39% 11%;
+        --sidebar-primary-foreground: 226 84% 95%;
+        --sidebar-accent: 217 32% 25%;
+        --sidebar-accent-foreground: 226 84% 95%;
+        --sidebar-border: 217 32% 25%;
+        --sidebar-ring: 50 96% 56%;
+    }
+}
+
+@layer utilities {
+    .font-body {
+        font-family: var(--font-body);
+    }
+
+    .font-heading {
+        font-family: var(--font-heading);
+    }
+
+    .text-balance {
+        text-wrap: balance;
+    }
+
+    .container-custom {
+        @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    }
+
+    .section-padding {
+        @apply py-20 lg:py-24;
+    }
+
+    .gradient-text {
+        @apply bg-gradient-to-r from-accent to-yellow-200 bg-clip-text text-transparent;
+    }
+
+    .card-hover {
+        @apply transition-all duration-300 hover:shadow-lg hover:shadow-accent/10 hover:-translate-y-1;
+    }
+
+    .link-hover {
+        @apply transition-colors duration-200 hover:text-accent;
+    }
+
+    .btn-primary {
+        @apply bg-accent text-accent-foreground font-medium px-6 py-3 rounded-lg transition-all duration-200 hover:brightness-110 active:scale-[0.98];
+    }
+
+    .btn-secondary {
+        @apply bg-card text-foreground font-medium px-6 py-3 rounded-lg border border-border transition-all duration-200 hover:bg-muted active:scale-[0.98];
+    }
+
+    /* Marquee Animations */
+    @keyframes marqueeScroll {
+        0% {
+            transform: translateX(0);
+        }
+
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+
+    @keyframes marqueeScrollReverse {
+        0% {
+            transform: translateX(-50%);
+        }
+
+        100% {
+            transform: translateX(0);
+        }
+    }
+
+    .animate-marquee {
+        animation: marqueeScroll 30s linear infinite;
+        will-change: transform;
+    }
+
+    .animate-marquee-reverse {
+        animation: marqueeScrollReverse 35s linear infinite;
+        will-change: transform;
+    }
+
+    .pause-on-hover:hover {
+        animation-play-state: paused;
+    }
+}

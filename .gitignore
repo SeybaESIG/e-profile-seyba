@@ -1,0 +1,30 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+*.local
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Logs & debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# Vite
+*.tsbuildinfo
+
+# Optional local-only: stats section (not pushed to GitHub)
+apps/web/src/components/StatsSection.jsx
