@@ -1,10 +1,10 @@
-# e-profile-seyba
+# E-profile Seyba
 
 Personal developer portfolio built with **React**, **Vite**, **Tailwind CSS**, and **React Router**. Content is mostly static sections plus project detail pages driven by `apps/web/src/data/projectsData.js`.
 
 ## Requirements
 
-- **Node.js** (LTS recommended)
+- **Node.js** 
 - **npm**
 
 ## Install
@@ -22,7 +22,7 @@ This installs root tooling (e.g. `concurrently`) and workspace dependencies unde
 | Command        | Description                                      |
 |----------------|--------------------------------------------------|
 | `npm run dev`  | Start the Vite dev server (default: port 3000)   |
-| `npm run build`| Production build → `dist/apps/web`               |
+| `npm run build`| Production build → `apps/web/dist`               |
 | `npm run start`| Preview the production build (after `build`)     |
 | `npm run lint` | Run ESLint in `apps/web`                         |
 
@@ -52,6 +52,16 @@ The contact section opens the visitor’s email client with a **mailto:** draft.
 - **`CONTACT_EMAIL_FALLBACK`** in `apps/web/src/components/ContactForm.jsx`.
 
 See `apps/web/.env.example`.
+
+## Deploy (Vercel)
+
+This project is set up for **Vercel** only (no separate static host required). After connecting the Git repo:
+
+1. **Root Directory** — either leave it as the **repository root**, or set it to **`apps/web`** (both work).
+2. Config is in **`vercel.json`** at the repo root and in **`apps/web/vercel.json`**; Vercel uses the file that matches your chosen root.
+3. Production output is **`apps/web/dist`** (from `npm run build`).
+
+Push to your default branch; Vercel runs install + build automatically.
 
 ## Optional: local-only file
 

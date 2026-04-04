@@ -26,5 +26,5 @@ Thumbs.db
 # Vite
 *.tsbuildinfo
 
-# Optional local-only: stats section (not pushed to GitHub)
+# Optional local-only: stats section 
 apps/web/src/components/StatsSection.jsx

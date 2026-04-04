@@ -13,7 +13,8 @@ export default defineConfig({
         },
     },
     build: {
-        outDir: path.resolve(__dirname, '../../dist/apps/web'),
+        // Default: apps/web/dist (works with Vercel when root is apps/web or repo root + vercel.json)
+        outDir: path.resolve(__dirname, 'dist'),
         emptyOutDir: true,
     },
 });
