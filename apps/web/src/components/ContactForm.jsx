@@ -4,7 +4,7 @@ import { Send, Mail, User, MessageSquare } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 /** Your inbox. Or set `VITE_CONTACT_EMAIL` in `apps/web/.env` (restart dev server). */
-const CONTACT_EMAIL_FALLBACK = 'sayba11@icloud.com';
+const CONTACT_EMAIL_FALLBACK = 'contact.seyba25@gmail.com';
 
 const ContactForm = () => {
     const { toast } = useToast();
