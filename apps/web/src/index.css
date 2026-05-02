@@ -6,26 +6,25 @@
 
 @layer base {
     :root {
-        --background: 217 32% 17%;
-        --foreground: 226 84% 95%;
-        --card: 219 39% 11%;
-        --card-foreground: 226 84% 95%;
-        --popover: 219 39% 11%;
-        --popover-foreground: 226 84% 95%;
-        --primary: 219 39% 11%;
-        --primary-foreground: 226 84% 95%;
-        --secondary: 217 32% 17%;
-        --secondary-foreground: 226 84% 95%;
-        --muted: 217 32% 25%;
-        --muted-foreground: 226 64% 75%;
-        --accent: 50 96% 56%;
-        /* Updated to #FBD924 yellow accent */
-        --accent-foreground: 219 39% 11%;
-        --destructive: 0 84% 60%;
-        --destructive-foreground: 226 84% 95%;
-        --border: 217 32% 25%;
-        --input: 217 32% 25%;
-        --ring: 50 96% 56%;
+        --background: 217 32% 17%; /* #1D2839 */
+        --foreground: 226 84% 95%; /* #E7ECFC */
+        --card: 219 39% 11%; /* #111826 */
+        --card-foreground: 226 84% 95%; /* #E7ECFC */
+        --popover: 219 39% 11%; /* #111826 */
+        --popover-foreground: 226 84% 95%; /* #E7ECFC */
+        --primary: 219 39% 11%; /* #111826 */
+        --primary-foreground: 226 84% 95%; /* #E7ECFC */
+        --secondary: 217 32% 17%; /* #1D2839 */
+        --secondary-foreground: 226 84% 95%; /* #E7ECFC */
+        --muted: 217 32% 25%; /* #2B3A54 */
+        --muted-foreground: 226 64% 75%; /* #96A9E8 */
+        --accent: 50 96% 56%; /* #FAD623 */
+        --accent-foreground: 219 39% 11%; /* #111826 */
+        --destructive: 0 84% 60%; /* #EE4343 */
+        --destructive-foreground: 226 84% 95%; /* #E7ECFC */
+        --border: 217 32% 25%; /* #2B3A54 */
+        --input: 217 32% 25%; /* #2B3A54 */
+        --ring: 50 96% 56%; /* #FAD623 */
         --radius: 0.5rem;
 
         /* Typography tokens */
@@ -66,14 +65,14 @@
 
     /* Sidebar variables for compatibility */
     :root {
-        --sidebar-background: 219 39% 11%;
-        --sidebar-foreground: 226 84% 95%;
-        --sidebar-primary: 219 39% 11%;
-        --sidebar-primary-foreground: 226 84% 95%;
-        --sidebar-accent: 217 32% 25%;
-        --sidebar-accent-foreground: 226 84% 95%;
-        --sidebar-border: 217 32% 25%;
-        --sidebar-ring: 50 96% 56%;
+        --sidebar-background: 219 39% 11%; /* #111826 */
+        --sidebar-foreground: 226 84% 95%; /* #E7ECFC */
+        --sidebar-primary: 219 39% 11%; /* #111826 */
+        --sidebar-primary-foreground: 226 84% 95%; /* #E7ECFC */
+        --sidebar-accent: 217 32% 25%; /* #2B3A54 */
+        --sidebar-accent-foreground: 226 84% 95%; /* #E7ECFC */
+        --sidebar-border: 217 32% 25%; /* #2B3A54 */
+        --sidebar-ring: 50 96% 56%; /* #FAD623 */
     }
 }
 

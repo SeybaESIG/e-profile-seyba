@@ -1,7 +1,10 @@
 import React from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Github, Linkedin, Mail } from 'lucide-react';
 
 const Footer = () => {
+    const navigate = useNavigate();
+    const location = useLocation();
     const currentYear = new Date().getFullYear();
 
     const socialLinks = [
@@ -34,12 +37,15 @@ const Footer = () => {
         name: 'Contact',
         href: '#contact'
     }];
-    const scrollToSection = href => {
-        const element = document.querySelector(href);
+    const scrollToSection = (href) => {
+        if (location.pathname !== '/') {
+            navigate({ pathname: '/', hash: href });
+            return;
+        }
+        const id = href.replace(/^#/, '');
+        const element = document.getElementById(id);
         if (element) {
-            element.scrollIntoView({
-                behavior: 'smooth'
-            });
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
     };
     return <footer className="bg-card border-t border-border">
@@ -47,16 +53,19 @@ const Footer = () => {
             <div className="grid md:grid-cols-3 gap-8 mb-8">
                 {/* Brand */}
                 <div>
-                    <a href="#" onClick={e => {
-                        e.preventDefault();
-                        window.scrollTo({
-                            top: 0,
-                            behavior: 'smooth'
-                        });
-                    }} className="text-2xl font-bold transition-colors duration-200 hover:text-accent inline-block mb-4">
+                    <Link
+                        to="/"
+                        onClick={(e) => {
+                            if (location.pathname === '/') {
+                                e.preventDefault();
+                                window.scrollTo({ top: 0, behavior: 'smooth' });
+                            }
+                        }}
+                        className="text-2xl font-bold transition-colors duration-200 hover:text-accent inline-block mb-4"
+                    >
                         <span className="gradient-text">Seyba's{` `}</span>
                         <span className="text-foreground">Tech</span>
-                    </a>
+                    </Link>
                     <p className="text-foreground/70 text-sm leading-relaxed">
                         Building scalable APIs, cloud-ready systems & automated infrastructure
                     </p>
@@ -68,12 +77,21 @@ const Footer = () => {
                         Quick Links
                     </span>
                     <div className="flex flex-wrap gap-4">
-                        {quickLinks.map(link => <a key={link.name} href={link.href} onClick={e => {
-                            e.preventDefault();
-                            scrollToSection(link.href);
-                        }} className="text-foreground/70 text-sm transition-colors duration-200 hover:text-accent">
-                            {link.name}
-                        </a>)}
+                        {quickLinks.map((link) => (
+                            <Link
+                                key={link.name}
+                                to={{ pathname: '/', hash: link.href }}
+                                onClick={(e) => {
+                                    if (location.pathname === '/') {
+                                        e.preventDefault();
+                                        scrollToSection(link.href);
+                                    }
+                                }}
+                                className="text-foreground/70 text-sm transition-colors duration-200 hover:text-accent"
+                            >
+                                {link.name}
+                            </Link>
+                        ))}
                     </div>
                 </div>
 

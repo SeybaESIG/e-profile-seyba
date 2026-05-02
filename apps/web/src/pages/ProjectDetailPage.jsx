@@ -211,29 +211,6 @@ const ProjectDetailPage = () => {
                                 </div>
                             </motion.div>
                         </div>
-
-                        {/* Additional Images Gallery */}
-                        {project.images && project.images.length > 1 && (
-                            <motion.div
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.5 }}
-                                className="mt-16 space-y-6"
-                            >
-                                <h2 className="text-2xl font-bold">Gallery</h2>
-                                <div className="grid md:grid-cols-2 gap-6">
-                                    {project.images.slice(1).map((img, index) => (
-                                        <div key={index} className="rounded-xl overflow-hidden border border-border aspect-video bg-muted">
-                                            <img
-                                                src={img}
-                                                alt={`${project.title} screenshot ${index + 2}`}
-                                                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                                            />
-                                        </div>
-                                    ))}
-                                </div>
-                            </motion.div>
-                        )}
                     </div>
                 </main>
 

@@ -1,29 +1,48 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Header = () => {
+    const navigate = useNavigate();
+    const location = useLocation();
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [activeSection, setActiveSection] = useState('');
 
     useEffect(() => {
+        const activationLine = 100;
+
+        const intersectsActivationLine = (element) => {
+            const rect = element.getBoundingClientRect();
+            return rect.top <= activationLine && rect.bottom >= activationLine;
+        };
+
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 20);
 
-            // Update active section based on scroll position
-            const sections = ['about', 'services', 'backend-tools', 'projects'];
-            const current = sections.find(section => {
-                const element = document.getElementById(section);
-                if (element) {
-                    const rect = element.getBoundingClientRect();
-                    return rect.top <= 100 && rect.bottom >= 100;
-                }
-                return false;
+            const skillsBlockIds = ['backend-tools', 'skills-languages', 'skills'];
+            const inSkillsBlock = skillsBlockIds.some((id) => {
+                const el = document.getElementById(id);
+                return el && intersectsActivationLine(el);
             });
-            setActiveSection(current || '');
+
+            let current = '';
+            if (inSkillsBlock) {
+                current = 'backend-tools';
+            } else {
+                const sections = ['about', 'services', 'projects'];
+                current =
+                    sections.find((section) => {
+                        const element = document.getElementById(section);
+                        return element && intersectsActivationLine(element);
+                    }) || '';
+            }
+
+            setActiveSection(current);
         };
 
+        handleScroll();
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
@@ -36,10 +55,15 @@ const Header = () => {
     ];
 
     const scrollToSection = (href) => {
-        const element = document.querySelector(href);
+        setIsMobileMenuOpen(false);
+        if (location.pathname !== '/') {
+            navigate({ pathname: '/', hash: href });
+            return;
+        }
+        const id = href.replace(/^#/, '');
+        const element = document.getElementById(id);
         if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
-            setIsMobileMenuOpen(false);
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
     };
 
@@ -51,12 +75,14 @@ const Header = () => {
             <nav className="container-custom">
                 <div className="flex items-center justify-between h-20">
                     {/* Logo */}
-                    <a
-                        href="#"
+                    <Link
+                        to="/"
                         className="text-2xl font-bold transition-colors duration-200 hover:text-accent flex items-center gap-2.5"
                         onClick={(e) => {
-                            e.preventDefault();
-                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                            if (location.pathname === '/') {
+                                e.preventDefault();
+                                window.scrollTo({ top: 0, behavior: 'smooth' });
+                            }
                         }}
                     >
                         <span className="gradient-text">Seyba's</span>
@@ -70,7 +96,7 @@ const Header = () => {
                             <rect x="1" width="1" height="2" fill="#FCD116" />
                             <rect x="2" width="1" height="2" fill="#CE1126" />
                         </svg>
-                    </a>
+                    </Link>
 
                     {/* Desktop Navigation */}
                     <div className="hidden md:flex items-center gap-8">
@@ -79,12 +105,14 @@ const Header = () => {
                             const isActive = activeSection === sectionId;
 
                             return (
-                                <a
+                                <Link
                                     key={link.name}
-                                    href={link.href}
+                                    to={{ pathname: '/', hash: link.href }}
                                     onClick={(e) => {
-                                        e.preventDefault();
-                                        scrollToSection(link.href);
+                                        if (location.pathname === '/') {
+                                            e.preventDefault();
+                                            scrollToSection(link.href);
+                                        }
                                     }}
                                     className={`relative text-sm font-medium transition-colors duration-200 ${isActive ? 'text-accent' : 'text-foreground/80 hover:text-foreground'
                                         }`}
@@ -97,22 +125,24 @@ const Header = () => {
                                             transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                                         />
                                     )}
-                                </a>
+                                </Link>
                             );
                         })}
                     </div>
 
                     {/* CTA Button */}
-                    <a
-                        href="#contact"
+                    <Link
+                        to={{ pathname: '/', hash: '#contact' }}
                         onClick={(e) => {
-                            e.preventDefault();
-                            scrollToSection('#contact');
+                            if (location.pathname === '/') {
+                                e.preventDefault();
+                                scrollToSection('#contact');
+                            }
                         }}
                         className="hidden md:block btn-primary"
                     >
                         Contact Me
-                    </a>
+                    </Link>
 
                     {/* Mobile Menu Button */}
                     <button
@@ -137,28 +167,36 @@ const Header = () => {
                     >
                         <div className="container-custom py-6 space-y-4">
                             {navLinks.map((link) => (
-                                <a
+                                <Link
                                     key={link.name}
-                                    href={link.href}
+                                    to={{ pathname: '/', hash: link.href }}
                                     onClick={(e) => {
-                                        e.preventDefault();
-                                        scrollToSection(link.href);
+                                        if (location.pathname === '/') {
+                                            e.preventDefault();
+                                            scrollToSection(link.href);
+                                        } else {
+                                            setIsMobileMenuOpen(false);
+                                        }
                                     }}
                                     className="block text-lg font-medium text-foreground/80 hover:text-accent transition-colors duration-200"
                                 >
                                     {link.name}
-                                </a>
+                                </Link>
                             ))}
-                            <a
-                                href="#contact"
+                            <Link
+                                to={{ pathname: '/', hash: '#contact' }}
                                 onClick={(e) => {
-                                    e.preventDefault();
-                                    scrollToSection('#contact');
+                                    if (location.pathname === '/') {
+                                        e.preventDefault();
+                                        scrollToSection('#contact');
+                                    } else {
+                                        setIsMobileMenuOpen(false);
+                                    }
                                 }}
                                 className="block w-full text-center btn-primary"
                             >
                                 Contact Me
-                            </a>
+                            </Link>
                         </div>
                     </motion.div>
                 )}

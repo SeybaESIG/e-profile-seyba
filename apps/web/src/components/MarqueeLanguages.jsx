@@ -35,7 +35,10 @@ const MarqueeLanguages = () => {
     const duplicatedLanguages = [...languages, ...languages, ...languages, ...languages];
 
     return (
-        <div className="w-full overflow-hidden bg-background py-8 relative flex items-center">
+        <div
+            id="skills-languages"
+            className="w-full overflow-hidden bg-background py-8 relative flex items-center scroll-mt-24"
+        >
             <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
             <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
 

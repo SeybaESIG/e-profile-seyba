@@ -44,7 +44,7 @@ const FeaturedProjects = () => {
                                 {project.images && project.images.length > 0 ? (
                                     <img
                                         src={project.images[0]}
-                                        alt={project.title}
+                                        alt={`Screenshot preview of ${project.title}`}
                                         className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-105"
                                     />
                                 ) : (
