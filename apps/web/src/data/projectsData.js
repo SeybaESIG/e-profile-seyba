@@ -24,9 +24,7 @@ export const projectsData = [
       'Observability: structured logs, optional Sentry; health check and versioned API under /api/v1/'
     ],
     githubLink: 'https://github.com/SeybaESIG/shoplane-api',
-    images: [
-      'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=1200'
-    ],
+    images: ['/img/laptop.jpg'],
     date: '2026',
     featured: true
   },
@@ -57,9 +55,7 @@ export const projectsData = [
       'CI on push/PR: PostgreSQL service container, Maven test with dependency caching'
     ],
     githubLink: 'https://github.com/SeybaESIG/taskmanager-api',
-    images: [
-      'https://images.unsplash.com/photo-1611224923853-80b023f02d71?auto=format&fit=crop&q=80&w=1200'
-    ],
+    images: ['/img/todo.jpg'],
     date: '2026',
     featured: false
   },
@@ -90,9 +86,7 @@ export const projectsData = [
       'Automated tests: 136+ passing unit tests in 12 suites; integration and coverage scripts'
     ],
     githubLink: 'https://github.com/SeybaESIG/air-carpooling-platform',
-    images: [
-      'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&q=80&w=1200'
-    ],
+    images: ['/img/plane.jpg'],
     date: '2025',
     featured: false
   }

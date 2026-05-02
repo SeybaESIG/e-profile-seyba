@@ -15,7 +15,7 @@ const HeroSection = () => {
             });
         }
     };
-    return <section className="relative min-h-screen flex items-center overflow-hidden">
+    return <section className="relative min-h-screen flex items-start lg:items-center overflow-hidden">
         {/* Gradient Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-background via-card to-background">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(251,191,36,0.08),transparent_50%)]" />
@@ -25,7 +25,7 @@ const HeroSection = () => {
         {/* Noise Texture */}
         <div className="absolute inset-0 opacity-[0.03] mix-blend-soft-light pointer-events-none bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxwYXRoIGQ9Ik0wIDBoMzAwdjMwMEgweiIgZmlsdGVyPSJ1cmwoI2EpIiBvcGFjaXR5PSIuMDUiLz48L3N2Zz4=')]" />
 
-        <div className="container-custom relative z-10">
+        <div className="container-custom relative z-10 pt-20 pb-12 lg:pb-0">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
                 {/* Left Content */}
                 <motion.div initial={{
@@ -37,21 +37,6 @@ const HeroSection = () => {
                 }} transition={{
                     duration: 0.6
                 }} className="space-y-6">
-                    <motion.div initial={{
-                        opacity: 0,
-                        y: 20
-                    }} animate={{
-                        opacity: 1,
-                        y: 0
-                    }} transition={{
-                        duration: 0.6,
-                        delay: 0.1
-                    }} className="inline-block">
-                        <span className="px-4 py-2 bg-accent/10 text-accent text-sm font-medium rounded-full border border-accent/20">
-                            Actively seeking new opportunities
-                        </span>
-                    </motion.div>
-
                     <motion.h1 initial={{
                         opacity: 0,
                         y: 20

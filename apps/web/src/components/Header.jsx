@@ -98,8 +98,8 @@ const Header = () => {
                         </svg>
                     </Link>
 
-                    {/* Desktop Navigation */}
-                    <div className="hidden md:flex items-center gap-8">
+                    {/* Desktop Navigation — lg+ only so tablet widths avoid cramped row overlapping content */}
+                    <div className="hidden lg:flex items-center gap-8">
                         {navLinks.map((link) => {
                             const sectionId = link.href.substring(1);
                             const isActive = activeSection === sectionId;
@@ -139,7 +139,7 @@ const Header = () => {
                                 scrollToSection('#contact');
                             }
                         }}
-                        className="hidden md:block btn-primary"
+                        className="hidden lg:block btn-primary"
                     >
                         Contact Me
                     </Link>
@@ -147,7 +147,7 @@ const Header = () => {
                     {/* Mobile Menu Button */}
                     <button
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                        className="md:hidden p-2 text-foreground transition-colors duration-200 hover:text-accent focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-lg"
+                        className="lg:hidden p-2 text-foreground transition-colors duration-200 hover:text-accent focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-lg"
                         aria-label="Toggle mobile menu"
                     >
                         {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -163,7 +163,7 @@ const Header = () => {
                         animate={{ opacity: 1, height: 'auto' }}
                         exit={{ opacity: 0, height: 0 }}
                         transition={{ duration: 0.2 }}
-                        className="md:hidden bg-card border-t border-border overflow-hidden"
+                        className="lg:hidden bg-card border-t border-border overflow-hidden"
                     >
                         <div className="container-custom py-6 space-y-4">
                             {navLinks.map((link) => (
