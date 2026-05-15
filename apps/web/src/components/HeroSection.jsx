@@ -1,13 +1,15 @@
+/** Above-the-fold intro: headline, CTAs, and profile photo with fallback initials. */
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Download } from 'lucide-react';
 
-/** Profile image: `public/profile/Photo_CV.jpg` */
+/** Profile image at `apps/web/public/profile/Photo_CV.jpg`. */
 const PROFILE_PHOTO_SRC = '/profile/Photo_CV.jpg';
 
 const HeroSection = () => {
     const [photoFailed, setPhotoFailed] = useState(false);
-    const scrollToSection = href => {
+
+    const scrollToSection = (href) => {
         const element = document.querySelector(href);
         if (element) {
             element.scrollIntoView({

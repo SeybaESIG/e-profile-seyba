@@ -1,3 +1,4 @@
+/** Infinite scroll of languages/frameworks (reverse direction vs backend marquee). */
 import React from 'react';
 import {
     Atom,
@@ -32,6 +33,7 @@ const MarqueeLanguages = () => {
         { name: 'JavaScript', icon: Brackets },
     ];
 
+    // Repeat for a seamless infinite scroll (see MarqueeBackendTools).
     const duplicatedLanguages = [...languages, ...languages, ...languages, ...languages];
 
     return (

@@ -1,3 +1,7 @@
+/**
+ * Root router: single-page home plus per-project detail routes.
+ * ScrollToTop resets scroll (or jumps to a hash) on every navigation.
+ */
 import React from 'react';
 import { Route, Routes, BrowserRouter as Router } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop.jsx';

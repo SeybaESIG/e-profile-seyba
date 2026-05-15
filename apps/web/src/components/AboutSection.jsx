@@ -1,3 +1,4 @@
+/** Bio, education, and current focus. */
 import React from 'react';
 import { motion } from 'framer-motion';
 import { GraduationCap, Workflow } from 'lucide-react';
@@ -14,7 +15,7 @@ const AboutSection = () => {
                     className="text-center mb-16"
                 >
                     <h2 className="text-3xl md:text-4xl font-bold mb-4">About me</h2>
-                    
+                    <div></div>
                 </motion.div>
 
                 <div className="max-w-4xl mx-auto space-y-8">

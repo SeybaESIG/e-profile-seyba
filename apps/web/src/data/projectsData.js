@@ -1,3 +1,9 @@
+/**
+ * Single source of truth for featured projects and `/projects/:projectId` pages.
+ *
+ * Each entry needs a unique `id` (URL slug). `technologies[].icon` must match a key
+ * in `ProjectDetailPage` iconMap. Images live under `apps/web/public/`.
+ */
 export const projectsData = [
   {
     id: 'shoplane-api',

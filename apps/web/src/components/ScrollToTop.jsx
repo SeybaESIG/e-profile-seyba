@@ -1,3 +1,7 @@
+/**
+ * Runs before paint on route changes so users never see a flash at the wrong scroll position.
+ * Supports deep links like `/#projects` after navigating from a detail page.
+ */
 import { useLocation } from 'react-router-dom';
 import { useLayoutEffect } from 'react';
 

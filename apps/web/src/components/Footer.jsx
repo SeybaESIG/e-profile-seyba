@@ -1,3 +1,4 @@
+/** Site footer: brand, in-page quick links, and social profiles. */
 import React from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Github, Linkedin, Mail } from 'lucide-react';
@@ -37,6 +38,7 @@ const Footer = () => {
         name: 'Contact',
         href: '#contact'
     }];
+    // Same hash navigation pattern as Header (see scrollToSection there).
     const scrollToSection = (href) => {
         if (location.pathname !== '/') {
             navigate({ pathname: '/', hash: href });
@@ -50,7 +52,7 @@ const Footer = () => {
     };
     return <footer className="bg-card border-t border-border">
         <div className="container-custom py-12">
-            <div className="grid md:grid-cols-3 gap-8 mb-8">
+            <div className="grid md:grid-cols-3 gap-8 mb-8 text-center">
                 {/* Brand */}
                 <div>
                     <Link
@@ -76,7 +78,7 @@ const Footer = () => {
                     <span className="text-sm font-semibold tracking-wide uppercase text-foreground/90 mb-4 block">
                         Quick Links
                     </span>
-                    <div className="flex flex-wrap gap-4">
+                    <div className="flex flex-wrap gap-4 justify-center">
                         {quickLinks.map((link) => (
                             <Link
                                 key={link.name}
@@ -100,7 +102,7 @@ const Footer = () => {
                     <span className="text-sm font-semibold tracking-wide uppercase text-foreground/90 mb-4 block">
                         Connect
                     </span>
-                    <div className="flex gap-3">
+                    <div className="flex gap-3 justify-center">
                         {socialLinks.map(social => {
                             const Icon = social.icon;
                             const isMail = social.href.startsWith('mailto:');
@@ -123,18 +125,10 @@ const Footer = () => {
             </div>
 
             {/* Bottom Bar */}
-            <div className="pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4">
+            <div className="pt-8 border-t border-border flex flex-col md:flex-row justify-center items-center gap-4 text-center">
                 <p className="text-foreground/60 text-sm">
                     © {currentYear} Seyba Tandia. All rights reserved.
                 </p>
-                <div className="flex gap-6">
-                    <a href="#" className="text-foreground/60 text-sm transition-colors duration-200 hover:text-accent">
-                        Privacy Policy
-                    </a>
-                    <a href="#" className="text-foreground/60 text-sm transition-colors duration-200 hover:text-accent">
-                        Terms of Service
-                    </a>
-                </div>
             </div>
         </div>
     </footer>;

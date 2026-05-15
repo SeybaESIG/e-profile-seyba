@@ -33,16 +33,33 @@ e-profile-seyba/
 ├── apps/web/           # Vite + React app
 │   ├── public/         # Static assets (favicon, profile photo, …)
 │   ├── src/
-│   │   ├── components/
-│   │   ├── pages/
+│   │   ├── components/ # UI sections (Header, Hero, marquees, …)
+│   │   ├── pages/      # HomePage, ProjectDetailPage
 │   │   ├── data/       # `projectsData.js` — featured projects
-│   │   └── …
+│   │   ├── hooks/      # Toast notifications (shadcn-style)
+│   │   └── lib/        # Shared utilities (`cn` for Tailwind classes)
 │   ├── index.html
 │   ├── vite.config.js
 │   └── .env.example    # Optional env template
 ├── package.json        # Workspace root
 └── README.md
 ```
+
+## Updating content
+
+| What to change | Where |
+|----------------|--------|
+| Projects (copy, tech stack, images) | `apps/web/src/data/projectsData.js` |
+| Profile photo | `apps/web/public/profile/Photo_CV.jpg` |
+| Hero / about / services copy | Matching files under `apps/web/src/components/` |
+| Theme colors & shared CSS utilities | `apps/web/src/index.css` |
+| Contact recipient | `VITE_CONTACT_EMAIL` in `.env` or `ContactForm.jsx` fallback |
+
+Source files use short file-level comments for non-obvious behavior (hash navigation, scroll-spy, mailto contact, marquee loops). Prefer editing data in `projectsData.js` over hard-coding project details in components.
+
+### Home page sections (top to bottom)
+
+Hero → backend tools marquee → languages marquee → skills bars → about → services → projects grid → contact form → footer. Section `id` attributes match header/footer hash links (`#about`, `#projects`, etc.).
 
 ## Contact form (mailto)
 

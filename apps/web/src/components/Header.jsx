@@ -1,3 +1,7 @@
+/**
+ * Fixed nav with scroll-spy highlights and hash-based section jumps on the home page.
+ * From other routes, section links navigate to `/#section` and ScrollToTop handles the jump.
+ */
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
@@ -11,6 +15,7 @@ const Header = () => {
     const [activeSection, setActiveSection] = useState('');
 
     useEffect(() => {
+        // Section is "active" when this horizontal line (below the fixed header) crosses it.
         const activationLine = 100;
 
         const intersectsActivationLine = (element) => {
@@ -21,6 +26,7 @@ const Header = () => {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 20);
 
+            // Three adjacent sections share one nav item ("Skills").
             const skillsBlockIds = ['backend-tools', 'skills-languages', 'skills'];
             const inSkillsBlock = skillsBlockIds.some((id) => {
                 const el = document.getElementById(id);
@@ -54,6 +60,7 @@ const Header = () => {
         { name: 'Projects', href: '#projects' },
     ];
 
+    /** Smooth-scroll on home; otherwise route home with hash for ScrollToTop. */
     const scrollToSection = (href) => {
         setIsMobileMenuOpen(false);
         if (location.pathname !== '/') {

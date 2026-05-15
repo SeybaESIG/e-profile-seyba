@@ -1,3 +1,4 @@
+/** Infinite horizontal scroll of backend tools. */
 import React from 'react';
 import {
     Box,
@@ -28,6 +29,7 @@ const MarqueeBackendTools = () => {
         { name: 'Linux', icon: Server },
     ];
 
+    // Repeat the list so the CSS marquee loop has no visible seam.
     const duplicatedTools = [...tools, ...tools, ...tools, ...tools];
 
     return (

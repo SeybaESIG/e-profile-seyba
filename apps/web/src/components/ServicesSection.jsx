@@ -1,3 +1,4 @@
+/** Service offering cards. */
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Server, Network, Database, TestTube2, Workflow, Cog } from 'lucide-react';
@@ -80,7 +81,14 @@ const ServicesSection = () => {
                                     : 'bg-background border-border'
                                     } rounded-xl p-8 border transition-all duration-300 hover:shadow-lg hover:shadow-accent/10 hover:-translate-y-1`}
                             >
-                                <div className={`flex ${service.featured ? 'flex-col md:flex-row md:items-center' : 'flex-col'} gap-6`}>
+                                {/* Centered below md; left-aligned from md up. */}
+                                <div
+                                    className={`flex flex-col items-center text-center gap-6 ${
+                                        service.featured
+                                            ? 'md:flex-row md:items-center md:text-left'
+                                            : 'md:items-start md:text-left'
+                                    }`}
+                                >
                                     <div className={`${service.featured ? 'p-4' : 'p-3'} bg-accent/10 rounded-xl w-fit transition-transform duration-300 group-hover:scale-110`}>
                                         <Icon className="text-accent" size={service.featured ? 32 : 24} />
                                     </div>

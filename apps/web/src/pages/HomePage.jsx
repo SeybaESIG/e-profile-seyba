@@ -1,3 +1,7 @@
+/**
+ * Landing page: stacked sections with hash targets for header/footer navigation.
+ * Section order matches the scroll flow (hero → skills marquees → about → …).
+ */
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import Header from '@/components/Header.jsx';
@@ -19,7 +23,7 @@ const HomePage = () => {
                 <title>Seyba Tandia - Software Engineering Student</title>
                 <meta
                     name="description"
-                    content="Backend developer specializing in Python, Django, PostgreSQL, and scalable API development. Software engineering student at ESIG with expertise in DevOps and cloud infrastructure."
+                    content="Online profile of Seyba Tandia, a Software engineering student at ESIG"
                 />
             </Helmet>
 

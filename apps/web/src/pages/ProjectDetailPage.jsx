@@ -1,3 +1,6 @@
+/**
+ * Project detail view driven by `projectsData` and the `:projectId` URL param.
+ */
 import React, { useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
@@ -26,6 +29,7 @@ import { projectsData } from '@/data/projectsData.js';
 import Header from '@/components/Header.jsx';
 import Footer from '@/components/Footer.jsx';
 
+/** Maps `technologies[].icon` strings from projectsData to Lucide components. */
 const iconMap = {
     Layers,
     Database,

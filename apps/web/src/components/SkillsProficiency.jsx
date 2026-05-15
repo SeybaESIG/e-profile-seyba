@@ -1,3 +1,6 @@
+/**
+ * Animated skill bars.
+ */
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Code2, Coffee, Layers, Database, Box, GitBranch, Server } from 'lucide-react';

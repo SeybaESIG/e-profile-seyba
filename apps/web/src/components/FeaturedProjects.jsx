@@ -1,3 +1,7 @@
+/**
+ * Project grid on the home page. Cards link to `/projects/:id` detail routes.
+ * `featured: true` entries span both columns on md+ screens.
+ */
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ExternalLink, Github, ArrowRight } from 'lucide-react';

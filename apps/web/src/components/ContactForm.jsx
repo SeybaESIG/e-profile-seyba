@@ -1,9 +1,12 @@
+/**
+ * Contact section: validates input, then opens a mailto draft (no backend).
+ * Recipient: `VITE_CONTACT_EMAIL` in `.env`, or CONTACT_EMAIL_FALLBACK below.
+ */
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Send, Mail, User, MessageSquare } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
-/** Your inbox. Or set `VITE_CONTACT_EMAIL` in `apps/web/.env` (restart dev server). */
 const CONTACT_EMAIL_FALLBACK = 'contact.seyba25@gmail.com';
 
 const ContactForm = () => {
@@ -72,6 +75,7 @@ const ContactForm = () => {
             return;
         }
 
+        // mailto: opens the visitor's default mail client with a pre-filled draft.
         const subject = encodeURIComponent(formData.subject.trim());
         const body = encodeURIComponent(
             [
